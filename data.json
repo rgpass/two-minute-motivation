@@ -1,0 +1,12 @@
+{
+  "actions": [
+    { "title": "Clean your computer screen" },
+    { "title": "Clean your computer keyboard" },
+    { "title": "Clean one dish" },
+    { "title": "Make the bed" },
+    { "title": "Write down a To-Do list for the next 24 hours" },
+    { "title": "Unsubscribe from an email list" },
+    { "title": "Start a load of laundry" },
+    { "title": "Take the trash out" }
+  ]
+}

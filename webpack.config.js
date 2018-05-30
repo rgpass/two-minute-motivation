@@ -6,9 +6,23 @@ const config = {
   resolve: {
     // import will auto-check these extensions
     extensions: ['.js', '.jsx', '.json'],
+    alias: {
+      react: 'preact-compat',
+      'react-dom': 'preact-compat',
+    },
   },
   module: {
-    rules: [{ test: /\.jsx?$/, loader: 'babel-loader' }],
+    rules: [
+      {
+        test: /\.jsx?$/,
+        loader: 'babel-loader',
+        include: [
+          path.resolve('js'),
+          // Preact-compat requires it be run through Babel
+          path.resolve('node_modules/preact-compat/src'),
+        ],
+      },
+    ],
   },
   output: {
     path: path.join(__dirname, 'public'),
