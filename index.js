@@ -1,6 +1,8 @@
 const express = require('express') // web app server
 const path = require('path') // Node module for access path
 const compression = require('compression') // Enable gzip for extra small files
+const favicon = require('serve-favicon') // Enable favicon
+
 require('dotenv').config() // Enable .env file
 
 const app = express()
@@ -11,6 +13,7 @@ app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(compression())
+app.use(favicon(path.join(__dirname, 'favicon.ico')))
 
 // Only need one route -- SPA FTW
 app.get('*', (req, res) => {
