@@ -26,11 +26,36 @@ class App extends Component {
     const { actionIndex } = this.state
     const action = data.actions[actionIndex].title
 
+    const h1Style = {
+      margin: '20vh 0 0 0',
+    }
+
+    const h2WrapperStyle = {
+      margin: 'calc(20vh - 33px) 0 0 0',
+      height: '66px',
+    }
+
+    const btnStyle = {
+      margin: 'calc(20vh - 33px) 0 0 0',
+    }
+
     return (
-      <div>
-        <h1>Two Minute Motivation</h1>
-        <h2>{action}</h2>
-        <button onClick={this.handleNext}>Next</button>
+      <div className="container">
+        <div className="row justify-content-center text-center">
+          <div className="col-12 col-md-6">
+            <h1 style={h1Style}>Two Minute Motivation</h1>
+            <div style={h2WrapperStyle}>
+              <h2>{action}</h2>
+            </div>
+            <button
+              className="btn btn-primary btn-block btn-lg"
+              style={btnStyle}
+              onClick={this.handleNext}
+            >
+              Next
+            </button>
+          </div>
+        </div>
       </div>
     )
   }
