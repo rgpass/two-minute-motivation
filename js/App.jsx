@@ -37,6 +37,7 @@ class App extends Component {
 
     const btnStyle = {
       margin: 'calc(20vh - 33px) 0 0 0',
+      color: 'white',
     }
 
     return (
@@ -47,13 +48,13 @@ class App extends Component {
             <div style={h2WrapperStyle}>
               <h2>{action}</h2>
             </div>
-            <button
+            <a
               className="btn btn-primary btn-block btn-lg"
               style={btnStyle}
               onClick={this.handleNext}
             >
               Next
-            </button>
+            </a>
           </div>
         </div>
       </div>
