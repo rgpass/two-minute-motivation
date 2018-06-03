@@ -60,7 +60,7 @@ class App extends Component {
     } else {
       mobileSection = (
         <span>
-          &nbsp;&nbsp;( Shortcut:&nbsp;&nbsp;<KeyboardButton content="SPACEBAR" />&nbsp;)
+          &nbsp;&nbsp;(&nbsp;<KeyboardButton content="SPACEBAR" />&nbsp;)
         </span>
       )
     }
