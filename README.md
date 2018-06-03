@@ -49,9 +49,11 @@ Two Minute Motivation is an app that solves the feeling of laziness by building 
 ## Tech Used
 
 - UI / Front-End
+
   - Sketch
   - Bootstrap 4
   - React
+
 - Build Steps
   - Webpack
   - Babel
@@ -63,7 +65,6 @@ Two Minute Motivation is an app that solves the feeling of laziness by building 
 
 ## TODOs
 
-- PropTypes
 - Jest
 - Cypress
 - Flow

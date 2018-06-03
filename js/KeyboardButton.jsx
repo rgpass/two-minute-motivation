@@ -1,4 +1,5 @@
 import React from 'react'
+import { string } from 'prop-types'
 
 const KeyboardButton = props => {
   const style = {
@@ -14,6 +15,10 @@ const KeyboardButton = props => {
       {content}
     </span>
   )
+}
+
+KeyboardButton.propTypes = {
+  content: string.isRequired,
 }
 
 export default KeyboardButton
