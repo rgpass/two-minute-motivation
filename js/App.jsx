@@ -18,7 +18,14 @@ class App extends Component {
   }
 
   handleNext() {
-    const newIndex = this.randomIndex()
+    const oldIndex = this.state.actionIndex
+    let newIndex = this.randomIndex()
+
+    // Prevent the same one from showing up twice in a row
+    while (oldIndex == newIndex) {
+      newIndex = this.randomIndex()
+    }
+
     this.setState({ actionIndex: newIndex })
   }
 
