@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import KeyboardButton from './KeyboardButton'
 import data from '../data.json'
 
 class App extends Component {
@@ -10,6 +11,10 @@ class App extends Component {
     }
 
     this.handleNext = this.handleNext.bind(this)
+  }
+
+  componentDidMount() {
+    document.onkeyup = this.handleNext
   }
 
   handleNext() {
@@ -40,6 +45,19 @@ class App extends Component {
       color: 'white',
     }
 
+    let mobileSection
+    const isMobile = 'ontouchstart' in window
+
+    if (isMobile) {
+      mobileSection = ''
+    } else {
+      mobileSection = (
+        <span>
+          &nbsp;&nbsp;( Shortcut:&nbsp;&nbsp;<KeyboardButton content="SPACEBAR" />&nbsp;)
+        </span>
+      )
+    }
+
     return (
       <div className="container">
         <div className="row justify-content-center text-center">
@@ -48,13 +66,13 @@ class App extends Component {
             <div style={h2WrapperStyle}>
               <h2>{action}</h2>
             </div>
-            <a
+            <button
               className="btn btn-primary btn-block btn-lg"
               style={btnStyle}
               onClick={this.handleNext}
             >
-              Next
-            </a>
+              Next{mobileSection}
+            </button>
           </div>
         </div>
       </div>
