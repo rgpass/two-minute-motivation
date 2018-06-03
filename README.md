@@ -48,9 +48,24 @@ Two Minute Motivation is an app that solves the feeling of laziness by building 
 
 ## Tech Used
 
-- Sketch
-- React
-- Webpack
-- Node
-- Express
-- Heroku
+- UI / Front-End
+  - Sketch
+  - Bootstrap 4
+  - React
+- Build Steps
+  - Webpack
+  - Babel
+  - Prettier
+- Back-End / DevOps
+  - Node
+  - Express
+  - Heroku
+
+## TODOs
+
+- Jest
+- Cypress
+- Offline functionality (while grabbing new ideas when offline)
+- Accessibility
+- React Native
+- FAQs / Research section
