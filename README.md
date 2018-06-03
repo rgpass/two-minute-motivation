@@ -63,8 +63,12 @@ Two Minute Motivation is an app that solves the feeling of laziness by building 
 
 ## TODOs
 
+- PropTypes
 - Jest
 - Cypress
+- Flow
+- Husky
+- Heroku CI
 - Offline functionality (while grabbing new ideas when offline)
 - Accessibility
 - React Native
