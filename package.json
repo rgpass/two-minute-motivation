@@ -6,6 +6,9 @@
     "lint": "eslint \"**/*.js\" --quiet",
     "start:simulate-prod": "heroku local web",
     "postinstall": "npm run build",
+    "test": "jest --coverage",
+    "test:update": "jest -u",
+    "test:watch": "jest --watch",
     "watch:client": "NODE_ENV=development webpack --watch --mode=development",
     "watch:server": "nodemon index.js"
   },
@@ -33,6 +36,7 @@
     "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.8.2",
+    "jest": "^23.1.0",
     "nodemon": "^1.17.5",
     "webpack-cli": "^2.1.4"
   },

@@ -24,7 +24,7 @@ class App extends Component {
     let newIndex = this.randomIndex()
 
     // Prevent the same one from showing up twice in a row
-    while (oldIndex == newIndex) {
+    while (oldIndex === newIndex) {
       newIndex = this.randomIndex()
     }
 
