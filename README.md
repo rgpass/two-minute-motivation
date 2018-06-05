@@ -65,7 +65,6 @@ Two Minute Motivation is an app that solves the feeling of laziness by building 
 
 ## TODOs
 
-- Jest
 - Cypress
 - Flow
 - Husky
