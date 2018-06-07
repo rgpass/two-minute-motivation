@@ -43,21 +43,26 @@ Two Minute Motivation is an app that solves the feeling of laziness by building 
 
 - Install dependencies: `yarn install`
 - Start the watch servers:
-  - `yarn watch:server`
-  - `yarn watch:client`
+  - Standard watch:
+    - `yarn watch:server`
+    - `yarn watch:client`
+  - Using Cypress:
+    - `yarn test:e2e:dev`
 
 ## Tech Used
 
 - UI / Front-End
-
   - Sketch
   - Bootstrap 4
   - React
-
 - Build Steps
   - Webpack
   - Babel
   - Prettier
+- Testing
+  - ESLint (static tests)
+  - Jest
+  - Cypress
 - Back-End / DevOps
   - Node
   - Express
@@ -65,7 +70,6 @@ Two Minute Motivation is an app that solves the feeling of laziness by building 
 
 ## TODOs
 
-- Cypress
 - Flow
 - Husky
 - Heroku CI
