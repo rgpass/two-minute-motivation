@@ -4,6 +4,8 @@
 
 Two Minute Motivation is an app that solves the feeling of laziness by building a small piece of momentum. It provides the user with ideas on what they could do to jumpstart themselves.
 
+I wanted to have a simple app which was just complex enough to allow for implementing various technologies. The list of used technologies can be found at the end of this document.
+
 ## Starting the App
 
 ### One-Time Setup
@@ -52,6 +54,14 @@ Two Minute Motivation is an app that solves the feeling of laziness by building 
     - `yarn test:e2e:dev`
 - Install new types: `flow-typed install`
 
+## Committing
+
+Husky is used to manage Git hooks. This enforces all contributors to have to follow precommit requirements.
+
+### Precommit Hook Errors
+
+If you get an error when committing, it's most likely because you have the server running in another tab.
+
 ## Tech Used
 
 - UI / Front-End
@@ -69,14 +79,16 @@ Two Minute Motivation is an app that solves the feeling of laziness by building 
 - Back-End / DevOps
   - Node
   - Express
+  - Husky
   - Heroku
 
 ## TODOs
 
-- Husky
+- Redux
+- Flexbox
 - Fix missing dependencies/settings
 - Heroku CI
 - Offline functionality (while grabbing new ideas when offline)
 - Accessibility
-- React Native
+- React Native (with different view for landscape vs portrait)
 - FAQs / Research section
