@@ -1,7 +1,8 @@
-import React from 'react'
-import { string } from 'prop-types'
+// @flow
 
-const KeyboardButton = props => {
+import React from 'react'
+
+const KeyboardButton = (props: { content: string }) => {
   const style = {
     padding: '3px 5px',
     fontSize: '10px',
@@ -15,10 +16,6 @@ const KeyboardButton = props => {
       {content}
     </span>
   )
-}
-
-KeyboardButton.propTypes = {
-  content: string.isRequired,
 }
 
 export default KeyboardButton

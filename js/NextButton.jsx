@@ -1,8 +1,9 @@
+// @flow
+
 import React from 'react'
-import { func } from 'prop-types'
 import KeyboardButton from './KeyboardButton'
 
-const NextButton = props => {
+const NextButton = (props: { onClick: () => void }) => {
   const style = {
     margin: 'calc(20vh - 33px) 0 0 0',
     color: 'white',
@@ -32,10 +33,6 @@ const NextButton = props => {
       Next{mobileSection}
     </button>
   )
-}
-
-NextButton.propTypes = {
-  onClick: func.isRequired,
 }
 
 export default NextButton

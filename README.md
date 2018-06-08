@@ -11,10 +11,12 @@ Two Minute Motivation is an app that solves the feeling of laziness by building 
 - Install Node and npm
 - Global install yarn: `npm install -g yarn`
 - Install Heroku CLI: `brew install heroku`
+- Global install Flow: `npm install -g flow-typed`
 - Copy env file: `cp .env-example .env`
 - Enable linting in Sublime Text 3
   - Install `SublimeLinter`
   - Install `SublimeLinter-eslint`
+  - Install `SublimeLinter-flow`
 - Enable auto-styling in Sublime Text 3
   - Install `JsPrettier`
   - In Terminal, run `which prettier`
@@ -48,6 +50,7 @@ Two Minute Motivation is an app that solves the feeling of laziness by building 
     - `yarn watch:client`
   - Using Cypress:
     - `yarn test:e2e:dev`
+- Install new types: `flow-typed install`
 
 ## Tech Used
 
@@ -56,11 +59,11 @@ Two Minute Motivation is an app that solves the feeling of laziness by building 
   - Bootstrap 4
   - React
 - Build Steps
-  - Webpack
-  - Babel
   - Prettier
+  - Babel
+  - Webpack
 - Testing
-  - ESLint (static tests)
+  - ESLint and Flow (static tests)
   - Jest
   - Cypress
 - Back-End / DevOps
@@ -70,8 +73,8 @@ Two Minute Motivation is an app that solves the feeling of laziness by building 
 
 ## TODOs
 
-- Flow
 - Husky
+- Fix missing dependencies/settings
 - Heroku CI
 - Offline functionality (while grabbing new ideas when offline)
 - Accessibility

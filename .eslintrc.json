@@ -1,6 +1,6 @@
 {
-  "extends": ["airbnb", "prettier"],
-  "plugins": [],
+  "extends": ["plugin:flowtype/recommended", "airbnb", "prettier"],
+  "plugins": ["flowtype"],
   "parserOptions": {
     "ecmaVersion": 2016,
     "sourceType": "module",

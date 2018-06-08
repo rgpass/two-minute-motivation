@@ -1,7 +1,8 @@
-import React from 'react'
-import { string } from 'prop-types'
+// @flow
 
-const Action = props => {
+import React from 'react'
+
+const Action = (props: { action: string }) => {
   const style = {
     margin: 'calc(20vh - 33px) 0 0 0',
     height: '66px',
@@ -14,10 +15,6 @@ const Action = props => {
       <h2>{action}</h2>
     </div>
   )
-}
-
-Action.propTypes = {
-  action: string.isRequired,
 }
 
 export default Action

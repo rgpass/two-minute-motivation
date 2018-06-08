@@ -1,24 +1,31 @@
+// @flow
+
 import React, { Component } from 'react'
 import Title from './Title'
 import Action from './Action'
 import NextButton from './NextButton'
 import data from '../data.json'
 
-class App extends Component {
-  constructor(props) {
+class App extends Component<{}, { actionIndex: number }> {
+  constructor(props: any) {
     super(props)
 
     this.state = {
       actionIndex: this.randomIndex(),
     }
 
+    // Issue with Flow and binding functions
+    // $FlowFixMe
     this.handleNext = this.handleNext.bind(this)
   }
 
   componentDidMount() {
+    // Flow claims that document does not have onkeyup but it does
+    // $FlowFixMe
     document.onkeyup = this.handleNext
   }
 
+  // handleNext: () => void
   handleNext() {
     const oldIndex = this.state.actionIndex
     let newIndex = this.randomIndex()
