@@ -85,7 +85,6 @@ If you get an error when committing, it's most likely because you have the serve
 
 ## TODOs
 
-- Heroku CI
 - Offline functionality (while grabbing new ideas when offline)
 - Accessibility
 - React Native (with different view for landscape vs portrait)
