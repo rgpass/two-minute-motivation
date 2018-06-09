@@ -7,4 +7,10 @@ module.exports = {
       lines: 100,
     },
   },
+  collectCoverageFrom: [
+    '**/js/**/*.jsx',
+    '**/js/**/*.js',
+    '!**/js/**/ClientApp.jsx',
+    '!**/js/**/utils.jsx',
+  ],
 }

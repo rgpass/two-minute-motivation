@@ -1,60 +1,41 @@
-import React from 'react'
-import { render } from 'react-dom'
-import { Provider } from 'react-redux'
-import { Simulate } from 'react-dom/test-utils'
-import App from '../App'
-import store from '../store'
+import { renderApp, pressSpacebar, simulateMobile } from '../test/utils'
 
-jest.mock('../../data.json', () => {
-  return { actions: [{ title: 'title1' }, { title: 'title2' }] }
-})
+jest.mock('../../data.json', () => ({
+  actions: [{ title: 'title1' }, { title: 'title2' }],
+}))
 
 describe('Clicking Next', () => {
   it('changes the Action', () => {
-    const container = document.createElement('div')
-    render(
-      <Provider store={store}>
-        <App />
-      </Provider>,
-      container
-    )
+    const { clickNext, getActionText } = renderApp()
 
-    const currentAction = container.querySelector('h2').textContent
+    const currentAction = getActionText()
 
-    const button = container.querySelector('button')
-    Simulate.click(button)
+    clickNext()
 
-    const newAction = container.querySelector('h2').textContent
+    const newAction = getActionText()
 
     expect(newAction).not.toBe(currentAction)
   })
 
   it('never does the same action', () => {
-    const container = document.createElement('div')
-    render(
-      <Provider store={store}>
-        <App />
-      </Provider>,
-      container
-    )
+    const { clickNext, getActionText } = renderApp()
 
-    const action0 = container.querySelector('h2').textContent
-    const button = container.querySelector('button')
+    const action0 = getActionText()
 
-    Simulate.click(button)
-    const action1 = container.querySelector('h2').textContent
+    clickNext()
+    const action1 = getActionText()
 
-    Simulate.click(button)
-    const action2 = container.querySelector('h2').textContent
+    clickNext()
+    const action2 = getActionText()
 
-    Simulate.click(button)
-    const action3 = container.querySelector('h2').textContent
+    clickNext()
+    const action3 = getActionText()
 
-    Simulate.click(button)
-    const action4 = container.querySelector('h2').textContent
+    clickNext()
+    const action4 = getActionText()
 
-    Simulate.click(button)
-    const action5 = container.querySelector('h2').textContent
+    clickNext()
+    const action5 = getActionText()
 
     if (action0 === 'title1') {
       expect([action1, action2, action3, action4, action5]).toEqual([
@@ -79,33 +60,18 @@ describe('Clicking Next', () => {
 describe('Shortcuts', () => {
   describe('when on a desktop', () => {
     it('tells the user to press Spacebar', () => {
-      const container = document.createElement('div')
-      render(
-        <Provider store={store}>
-          <App />
-        </Provider>,
-        container
-      )
-
-      expect(container.textContent.toLowerCase()).toContain('spacebar')
+      const { button } = renderApp()
+      expect(button.textContent.toLowerCase()).toContain('spacebar')
     })
 
     it('goes to the next action after pressing Spacebar', () => {
-      const container = document.createElement('div')
-      render(
-        <Provider store={store}>
-          <App />
-        </Provider>,
-        container
-      )
-      const app = container.firstChild
+      const { getActionText } = renderApp()
 
-      const currentAction = app.querySelector('h2').textContent
+      const currentAction = getActionText()
 
-      const event = new window.Event('keyup', { keyCode: 32 })
-      document.dispatchEvent(event)
+      pressSpacebar()
 
-      const newAction = app.querySelector('h2').textContent
+      const newAction = getActionText()
 
       expect(newAction).not.toBe(currentAction)
     })
@@ -113,18 +79,11 @@ describe('Shortcuts', () => {
 
   describe('when on a mobile device', () => {
     it('does not mention the Spacebar shortcut', () => {
-      // The presense of window.ontouchstart is how we determine if on mobile
-      window.ontouchstart = {}
+      simulateMobile()
 
-      const container = document.createElement('div')
-      render(
-        <Provider store={store}>
-          <App />
-        </Provider>,
-        container
-      )
+      const { button } = renderApp()
 
-      expect(container.textContent.toLowerCase()).not.toContain('spacebar')
+      expect(button.textContent.toLowerCase()).not.toContain('spacebar')
     })
   })
 })
