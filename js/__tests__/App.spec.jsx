@@ -1,7 +1,9 @@
 import React from 'react'
 import { render } from 'react-dom'
+import { Provider } from 'react-redux'
 import { Simulate } from 'react-dom/test-utils'
 import App from '../App'
+import store from '../store'
 
 jest.mock('../../data.json', () => {
   return { actions: [{ title: 'title1' }, { title: 'title2' }] }
@@ -10,7 +12,12 @@ jest.mock('../../data.json', () => {
 describe('Clicking Next', () => {
   it('changes the Action', () => {
     const container = document.createElement('div')
-    render(<App />, container)
+    render(
+      <Provider store={store}>
+        <App />
+      </Provider>,
+      container
+    )
 
     const currentAction = container.querySelector('h2').textContent
 
@@ -24,7 +31,12 @@ describe('Clicking Next', () => {
 
   it('never does the same action', () => {
     const container = document.createElement('div')
-    render(<App />, container)
+    render(
+      <Provider store={store}>
+        <App />
+      </Provider>,
+      container
+    )
 
     const action0 = container.querySelector('h2').textContent
     const button = container.querySelector('button')
@@ -68,14 +80,24 @@ describe('Shortcuts', () => {
   describe('when on a desktop', () => {
     it('tells the user to press Spacebar', () => {
       const container = document.createElement('div')
-      render(<App />, container)
+      render(
+        <Provider store={store}>
+          <App />
+        </Provider>,
+        container
+      )
 
       expect(container.textContent.toLowerCase()).toContain('spacebar')
     })
 
     it('goes to the next action after pressing Spacebar', () => {
       const container = document.createElement('div')
-      render(<App />, container)
+      render(
+        <Provider store={store}>
+          <App />
+        </Provider>,
+        container
+      )
       const app = container.firstChild
 
       const currentAction = app.querySelector('h2').textContent
@@ -95,7 +117,12 @@ describe('Shortcuts', () => {
       window.ontouchstart = {}
 
       const container = document.createElement('div')
-      render(<App />, container)
+      render(
+        <Provider store={store}>
+          <App />
+        </Provider>,
+        container
+      )
 
       expect(container.textContent.toLowerCase()).not.toContain('spacebar')
     })

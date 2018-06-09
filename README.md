@@ -68,6 +68,7 @@ If you get an error when committing, it's most likely because you have the serve
   - Sketch
   - Bootstrap 4
   - React
+  - Redux
 - Build Steps
   - Prettier
   - Babel
@@ -84,8 +85,7 @@ If you get an error when committing, it's most likely because you have the serve
 
 ## TODOs
 
-- Redux
-- Flexbox
+- Test config file
 - Fix missing dependencies/settings
 - Heroku CI
 - Offline functionality (while grabbing new ideas when offline)

@@ -5,10 +5,11 @@
     "build": "NODE_ENV=production webpack --mode=production",
     "cy:dev": "cypress open",
     "cy:run": "cypress run",
+    "flow": "flow",
     "lint": "eslint \"**/*.js\" --quiet",
-    "start:simulate-prod": "heroku local web",
     "postinstall": "npm run build",
-    "precommit": "npm-run-all lint test test:e2e:run",
+    "precommit": "npm-run-all lint flow test test:e2e:run",
+    "start:simulate-prod": "heroku local web",
     "test": "jest --coverage",
     "test:e2e:dev": "npm-run-all --parallel --race watch:server cy:dev",
     "test:e2e:run":
@@ -28,6 +29,8 @@
     "preact-compat": "^3.18.0",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
     "serve-favicon": "^2.5.0",
     "webpack": "^4.10.2"
   },

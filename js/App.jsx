@@ -1,51 +1,21 @@
 // @flow
 
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import Title from './Title'
 import Action from './Action'
 import NextButton from './NextButton'
-import data from '../data.json'
+import { updateAction } from './actionCreators'
 
-class App extends Component<{}, { actionIndex: number }> {
-  constructor(props: any) {
-    super(props)
-
-    this.state = {
-      actionIndex: this.randomIndex(),
-    }
-
-    // Issue with Flow and binding functions
-    // $FlowFixMe
-    this.handleNext = this.handleNext.bind(this)
-  }
-
+class App extends Component<{ action: string, handleNext: () => void }, {}> {
   componentDidMount() {
     // Flow claims that document does not have onkeyup but it does
     // $FlowFixMe
-    document.onkeyup = this.handleNext
-  }
-
-  // handleNext: () => void
-  handleNext() {
-    const oldIndex = this.state.actionIndex
-    let newIndex = this.randomIndex()
-
-    // Prevent the same one from showing up twice in a row
-    while (oldIndex === newIndex) {
-      newIndex = this.randomIndex()
-    }
-
-    this.setState({ actionIndex: newIndex })
-  }
-
-  // eslint-disable-next-line class-methods-use-this
-  randomIndex() {
-    return Math.floor(Math.random() * data.actions.length)
+    document.onkeyup = this.props.handleNext
   }
 
   render() {
-    const { actionIndex } = this.state
-    const action = data.actions[actionIndex].title
+    const { action, handleNext } = this.props
 
     return (
       <div className="container">
@@ -53,7 +23,7 @@ class App extends Component<{}, { actionIndex: number }> {
           <div className="col-12 col-md-6">
             <Title />
             <Action action={action} />
-            <NextButton onClick={this.handleNext} />
+            <NextButton onClick={handleNext} />
           </div>
         </div>
       </div>
@@ -61,4 +31,14 @@ class App extends Component<{}, { actionIndex: number }> {
   }
 }
 
-export default App
+const mapStateToProps = state => ({ action: state.action })
+const mapDispatchToProps = dispatch => ({
+  handleNext() {
+    dispatch(updateAction())
+  },
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App)
