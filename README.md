@@ -85,7 +85,6 @@ If you get an error when committing, it's most likely because you have the serve
 
 ## TODOs
 
-- Fix missing dependencies/settings
 - Heroku CI
 - Offline functionality (while grabbing new ideas when offline)
 - Accessibility
