@@ -8,8 +8,7 @@
   },
   "scripts": {
     "audit:local": "yarn lighthouse http://localhost:1776/ --view",
-    "audit:production":
-      "yarn lighthouse http://two-minute-motivation.herokuapp.com/ --view",
+    "audit:production": "yarn lighthouse http://two-minute-motivation.herokuapp.com/ --view",
     "build": "NODE_ENV=production webpack --mode=production",
     "cy:dev": "cypress open",
     "cy:run": "cypress run",
@@ -20,8 +19,7 @@
     "start:simulate-prod": "heroku local web",
     "test": "npm-run-all lint flow test:unit test:e2e:run",
     "test:e2e:dev": "npm-run-all --parallel --race watch:server cy:dev",
-    "test:e2e:run":
-      "PORT=8765 npm-run-all --parallel --race watch:server cy:run",
+    "test:e2e:run": "PORT=8765 npm-run-all --parallel --race watch:server cy:run",
     "test:unit": "jest --coverage",
     "test:unit:update": "jest -u",
     "test:unit:watch": "jest --watch",
@@ -34,6 +32,7 @@
     "dotenv": "^5.0.1",
     "ejs": "^2.6.1",
     "express": "^4.16.3",
+    "heroku-ssl-redirect": "^0.0.4",
     "preact": "^8.2.9",
     "preact-compat": "^3.18.0",
     "react": "^16.4.0",
