@@ -4,3 +4,4 @@ coverage
 cypress/videos
 .DS_Store
 .env
+*.report.html

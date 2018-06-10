@@ -1,4 +1,6 @@
 [ignore]
+<PROJECT_ROOT>/node_modules/devtools-timeline-model/*
+<PROJECT_ROOT>/node_modules/chrome-devtools-frontend/*
 
 [include]
 

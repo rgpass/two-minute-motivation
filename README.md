@@ -77,6 +77,8 @@ If you get an error when committing, it's most likely because you have the serve
   - ESLint and Flow (static tests)
   - Jest
   - Cypress
+- Performance / Progressive Web App
+  - Lighthouse
 - Back-End / DevOps
   - Node
   - Express
